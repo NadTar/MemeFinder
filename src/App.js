@@ -1,5 +1,7 @@
 import React from 'react';
 import './App.css';
+import Button from '@material-ui/core/Button'
+import TextField from '@material-ui/core/TextField'
 
 class App extends React.Component {
   state={
@@ -25,9 +27,18 @@ class App extends React.Component {
       <div className="App">
         <h1>MemeFinder</h1>
         <form className="App-header" onSubmit={this.getMemes}>
-          <input value={text} placeholder="Search for memes here..."
+          <TextField value={text} 
+          variant="outlined"
+          label="Search for memes here..."
+          fullWidth
+          className="input"
           onChange = {e=> this.setState({text: e.target.value})}/>
-          <button disabled={loading || !text} type="submit">Go</button>
+          <Button  variant="contained" 
+          color="primary" disabled={loading || !text} 
+          type="submit" 
+          style={{height:85, width: 120, position: 'absolute', margin: '0 10px'}}>
+            Go
+          </Button>
         </form>
         <main>
           {memes.map(m=> {
