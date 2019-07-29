@@ -17,7 +17,7 @@ class App extends React.Component {
     var url = `http://api.giphy.com/v1/gifs/search?q=${this.state.text}&api_key=${key}`
     var r = await fetch(url)
     var json = await r.json()
-    setTimeout(function() {
+    setTimeout(function () {
       this.setState({ memes: json.data, loading: false, text: '' })
     }.bind(this), 600)
   }
@@ -47,7 +47,7 @@ class App extends React.Component {
           </Pane>
         </form>
         <main>
-          {loading && <Spinner size={64}/>}
+          {loading && <Spinner size={64} />}
           {memes.map(m => showMeme(m))}
         </main>
       </div>
@@ -84,7 +84,9 @@ function showMeme(m) {
       transitionLeave={false}
       key={m.id}
     >
-      <Image src={m.images.fixed_height.url} />
+      <Pane hoverElevation={3}>
+        <Image src={m.images.fixed_height.url} />
+      </Pane>
     </ReactCSSTransitionGroup>
   )
 }
