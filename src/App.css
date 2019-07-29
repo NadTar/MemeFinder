@@ -60,7 +60,7 @@ main {
   flex-wrap: nowrap;
   overflow: auto;
   justify-content: space-around;
-  align-items: center;
+  align-items: flex-start;
   height: 100vh;
 }
 
