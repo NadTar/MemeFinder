@@ -12,7 +12,11 @@ class App extends React.Component {
 
   getMemes = async (e) => {
     e.preventDefault()
-    this.setState({ loading: true })
+    this.setState({loading: true })
+    var main = document.querySelector("main")
+    while (main.firstChild) {
+      main.removeChild(main.firstChild)
+    }
     var key = 'khF3tS3mArkkgXfLFPgI4YIKIEatC5Ta'
     var url = `http://api.giphy.com/v1/gifs/search?q=${this.state.text}&api_key=${key}`
     var r = await fetch(url)
